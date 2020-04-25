@@ -3,6 +3,7 @@
 const BlogController = require('./controller/BlogController');
 const GalleryController = require('./controller/GalleryController');
 const ImageTableController = require('./controller/ImageTableController');
+const MenuController = require('./controller/MenuController');
 // const AuthenticationControllerPolicy = require('./policies/BlogPolicies')
 
 module.exports = (app) => {
@@ -20,6 +21,7 @@ module.exports = (app) => {
 
     app.get('/ImageTable', ImageTableController.getImageTables);
 
+    app.post('/MenuController', MenuController.createGallery)
     // app.put('/create', BlogController.uploadThumbnail)
 
 

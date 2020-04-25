@@ -6,28 +6,29 @@
 </template>
 
 <script>
-import Vue from 'vue';
-
-
-export const EventBus = new Vue();
-export default {
-  name: 'app',
-}
+    import Vue from 'vue';
+    export const EventBus = new Vue();
+    export default {
+        name: 'app',
+    }
 </script>
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Cinzel|Roboto&display=swap');
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  max-width: 100%;
-  width: 100%;
-
-  overflow: hidden;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
   body {
     margin: 0;
+  }
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 </style>
