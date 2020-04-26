@@ -24,6 +24,9 @@ export default {
     getImageTables (){
         return Api().get('/ImageTable')
     },
+    SendOrder(data){
+        return Api().post('/SendOrder', data)
+    }
     // uploadThumbnail (file){
     //     return Api().post('/create', file)
     // }

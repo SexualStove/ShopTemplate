@@ -30,9 +30,8 @@
     import {EventBus} from "../../App";
 
     export default {
-        name: "MenuPage",
-        data() {
-
+      name: "MenuPage",
+      data() {
             return {
                 MenuItems: [
                 ],
@@ -63,7 +62,7 @@
               //console.log(`Oh, that's nice. It's gotten ${self.MenuItems} clicks! :)`);
           });
 
-        }
+      }
     }
 
 </script>
