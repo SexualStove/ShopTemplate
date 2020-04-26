@@ -1,7 +1,18 @@
 <template>
   <div>
-    <label for="MenuInput"></label><textarea id="MenuInput" rows="4" cols="50"></textarea>
-    <button v-on:click="getMenuInput">Submit</button>
+    <div id="RuleTitle"> We allow for you to edit the menu yourself! </div>
+    <div id="RuleHolder">
+      <div class="Rule">- Easy to remove or add new menu items!</div>
+      <div class="Rule">- Only the owner can change the menu</div>
+      <div class="Rule">- End every item with a ","</div>
+      <div class="Rule">- To make a section use "-" before the section title</div>
+      <div class="Rule">- The textbox below is showing whats above, so play around with it!</div>
+    </div>
+    <div id="InputZone">
+      <label for="MenuInput"></label><textarea id="MenuInput" rows="8" cols="50">
+    </textarea>
+    </div>
+    <button v-on:click="getMenuInput">Change</button>
 
 
 
@@ -9,6 +20,7 @@
 </template>
 
 <script>
+
     import {EventBus} from "../../App";
     export default {
         name: "CreateMenu",
@@ -20,12 +32,36 @@
                         SectionTitle: "Example Section",
                         SectionItems: [ {
                             id: -1,
+                            Ordered: 0,
                             title: "Example Item",
                             price: 99.99,
                         }]
-                    }
-                ]
+                    },
+
+                ],
+                startedOnce: false,
+                StartingString: "-Fish and chips,\n" +
+                    "      \n" +
+                    "      Fish:3.50,\n" +
+                    "      Chips:2.60,\n" +
+                    "      Hot Dog:1.50,\n" +
+                    "\n" +
+                    "-Chinese,\n" +
+                    "      BBQ chicken: 12.50,\n" +
+                    "      Lemon Chicken: 14.00,\n" +
+                    "      Sweet and sour pork: 15.00"
             }
+        },
+        beforeMount() {
+            document.getElementById("MenuInput").value = this.StartingString;
+
+        },
+        mounted() {
+            if(this.startedOnce === false) {
+                document.getElementById("MenuInput").value = this.StartingString;
+                this.startedOnce = true;
+            }
+
         },
         methods: {
             writeFile() {
@@ -73,6 +109,7 @@
                              ItemSplit[1] !== "" && ItemSplit[1] !== null) {
                              ItemChunk.title = ItemSplit[0];
                              ItemChunk.price = ItemSplit[1];
+                             ItemChunk.Ordered = 0;
                              SectionChunk.SectionItems.push(ItemChunk);
                              allItems += ItemChunk;
                              id += 1;
@@ -92,5 +129,21 @@
 </script>
 
 <style scoped>
-
+#RuleTitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3vw;
+  font-weight: 200;
+}
+  .Rule {
+    text-align: left;
+    width: auto;
+    margin: 0.5vw;
+  }
+  #RuleHolder {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2vw;
+    font-weight: 200;
+    display: inline-block;
+    margin: 3vw;
+  }
 </style>
