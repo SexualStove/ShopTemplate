@@ -17,7 +17,7 @@ require('./routes')(app);
 sequelize.sync()
     .then(() => {
 
-        app.listen(process.env.PORT || 8081);
+        app.listen(process.env.PORT || 8082);
         console.log(`Server started on port ${config.port}`)
 
     });

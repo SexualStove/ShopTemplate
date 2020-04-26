@@ -29,25 +29,25 @@
     import {EventBus} from "../../App";
 
     export default {
-        name: "MenuPage",
-        data() {
+      name: "MenuPage",
+      data() {
 
-            return {
-                MenuItems: [
-                ],
-                OrderedItems: [
+        return {
+          MenuItems: [
+          ],
+          OrderedItems: [
 
-                ]
-            }
-        },
-        mounted() {
-          let self = this;
-          EventBus.$on('Changed', changed => {
-              self.MenuItems = changed;
-              console.log(`Oh, that's nice. It's gotten ${self.MenuItems} clicks! :)`);
-          });
-
+          ]
         }
+      },
+      mounted() {
+        let self = this;
+        EventBus.$on('Changed', changed => {
+          self.MenuItems = changed;
+          console.log(`Oh, that's nice. It's gotten ${self.MenuItems} clicks! :)`);
+        });
+
+      }
     }
 
 </script>

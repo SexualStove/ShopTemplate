@@ -4,6 +4,7 @@ import CreateGallery from '@/components/Create/CreateGallery'
 import CreateEvent from '@/components/Create/CreateEvent'
 import ContactUs from "../components/ContactUs/ContactUsForm";
 import Router from 'vue-router'
+import SendOrder from "../components/MenuPage/SendOrder";
 
 Vue.use(Router);
 export default new Router({
@@ -27,6 +28,11 @@ export default new Router({
             path: '/ContactUs',
             name: 'ContactUs',
             component: ContactUs
+        },
+        {
+            path: "/SendOrder",
+            name: "SendOrder",
+            component: SendOrder
         }
     ]
 })
