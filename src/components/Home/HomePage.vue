@@ -4,6 +4,7 @@
     <About></About>
     <MenuPage></MenuPage>
     <CreateMenu></CreateMenu>
+    <OrderCustomerView></OrderCustomerView>
   </div>
 </template>
 
@@ -12,8 +13,9 @@
     import About from "./About";
     import CreateMenu from "../MenuPage/CreateMenu";
     import MenuPage from "../MenuPage/MenuPage";
+    import OrderCustomerView from "../OrderPage/OrderCustomerView";
     export default {
-        components: {MenuPage, CreateMenu, About, HomePageSplashScreen}
+        components: {OrderCustomerView, MenuPage, CreateMenu, About, HomePageSplashScreen}
     }
 </script>
 

@@ -2,19 +2,19 @@
   <div id="MenuArea" v-if="MenuItems.length !== 0">
     <div v-for="Section in MenuItems" v-bind:key="Section.SectionTitle" class="SelectionArea">
       <div class="SelectionTitle"><b>{{Section.SectionTitle}}</b></div>
-      <div  v-for="SectionItem in Section.SectionItems" v-bind:key="SectionItem.title">
+      <div  v-for="SectionItem in Section.SectionItems" :key="SectionItem.id">
         <div class="SlectionItem">
-        {{SectionItem.title}} : {{SectionItem.price}}$
+        {{SectionItem.title}} : ${{SectionItem.price}}
         </div>
         <div class="OrderArea">
-          <div class="ButtonHolder">
+          <div v-on:click="MinusOrder(SectionItem)" class="ButtonHolder">
             <div class="OrderButtonsRed">
               <span>-</span>
             </div>
           </div>
-          <div class="OrderedAmount">{{SectionItem.Ordered}}</div>
-          <div class="ButtonHolder">
-            <div class="OrderButtonsGreen">
+          <div :key="SectionItem.OrderedItems" class="OrderedAmount">{{SectionItem.Ordered}}</div>
+          <div v-on:click="AddOrder(SectionItem)" class="ButtonHolder">
+            <div  class="OrderButtonsGreen">
               <span>+</span>
             </div>
           </div>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+    //import Vue from 'vue';
     import {EventBus} from "../../App";
 
     export default {
@@ -40,11 +41,26 @@
                 ]
             }
         },
+        methods: {
+          AddOrder(SectionItem) {
+              SectionItem.Ordered += 1;
+              this.$forceUpdate();
+              //console.log(SectionItem)
+              EventBus.$emit('Changed', this.MenuItems);
+            },
+            MinusOrder(SectionItem) {
+              if(SectionItem.Ordered >= 1) {
+                  SectionItem.Ordered -= 1;
+                  this.$forceUpdate();
+                  EventBus.$emit('Changed', this.MenuItems);
+              }
+            }
+        },
         mounted() {
           let self = this;
           EventBus.$on('Changed', changed => {
               self.MenuItems = changed;
-              console.log(`Oh, that's nice. It's gotten ${self.MenuItems} clicks! :)`);
+              //console.log(`Oh, that's nice. It's gotten ${self.MenuItems} clicks! :)`);
           });
 
         }
@@ -67,6 +83,7 @@
   font-weight: 300;
   font-family: 'Amatic SC', cursive;
   font-size: 4vw;
+  vertical-align: bottom;
 }
 .OrderedAmount {
   display: inline-block;
@@ -88,7 +105,7 @@
   width:3vw;
   margin: 1vw;
   display: inline-block;
-  vertical-align: top;
+  vertical-align: central;
 
 }
 .OrderButtonsGreen, .OrderButtonsRed{
