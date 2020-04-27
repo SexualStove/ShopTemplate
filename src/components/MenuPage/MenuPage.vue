@@ -1,27 +1,30 @@
 <template>
-  <div id="MenuArea" v-if="MenuItems.length !== 0">
-    <div v-for="Section in MenuItems" v-bind:key="Section.SectionTitle" class="SelectionArea">
-      <div class="SelectionTitle"><b>{{Section.SectionTitle}}</b></div>
-      <div  v-for="SectionItem in Section.SectionItems" :key="SectionItem.id">
-        <div class="SlectionItem">
-        {{SectionItem.title}} : ${{SectionItem.price}}
-        </div>
-        <div class="OrderArea">
-          <div v-on:click="MinusOrder(SectionItem)" class="ButtonHolder">
-            <div class="OrderButtonsRed">
-              <span>-</span>
-            </div>
+  <div>
+    <div id="Title">Takeaway Menu</div>
+    <a id="OrderHerf"></a><div id="MenuArea" v-if="MenuItems.length !== 0">
+      <div v-for="Section in MenuItems" v-bind:key="Section.SectionTitle" class="SelectionArea">
+        <div class="SelectionTitle"><b>{{Section.SectionTitle}}</b></div>
+        <div  v-for="SectionItem in Section.SectionItems" :key="SectionItem.id">
+          <div class="SlectionItem">
+          {{SectionItem.title}} : ${{SectionItem.price}}
           </div>
-          <div :key="SectionItem.OrderedItems" class="OrderedAmount">{{SectionItem.Ordered}}</div>
-          <div v-on:click="AddOrder(SectionItem)" class="ButtonHolder">
-            <div  class="OrderButtonsGreen">
-              <span>+</span>
+          <div class="OrderArea">
+            <div v-on:click="MinusOrder(SectionItem)" class="ButtonHolder">
+              <div class="OrderButtonsRed">
+                <span>-</span>
+              </div>
             </div>
-          </div>
-         </div>
+            <div :key="SectionItem.OrderedItems" class="OrderedAmount">{{SectionItem.Ordered}}</div>
+            <div v-on:click="AddOrder(SectionItem)" class="ButtonHolder">
+              <div  class="OrderButtonsGreen">
+                <span>+</span>
+              </div>
+            </div>
+           </div>
 
-      </div>
-  </div>
+        </div>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -68,20 +71,29 @@
 </script>
 
 <style scoped>
+  #Title {
+    font-size: 8vw;
+    font-weight: 300;
+    font-family: 'Amatic SC', cursive;
+    margin: 2vw;
+  }
+  #MenuArea {
+    margin-bottom: 3vw;
+  }
 .SelectionTitle {
-  font-size: 8vw;
+  font-size: 6vw;
   font-weight: 300;
   font-family: 'Amatic SC', cursive;
   display: block;
   width: 100%;
-  margin-bottom: 3vw;
+  margin-bottom: 0vw;
 }
 .SlectionItem {
   display: inline-block;
-  margin: 1.5vw;
+  margin: 0 1.5vw 0 1.5vw;
   font-weight: 300;
   font-family: 'Amatic SC', cursive;
-  font-size: 4vw;
+  font-size: 3vw;
   vertical-align: bottom;
 }
 .OrderedAmount {
@@ -94,7 +106,7 @@
 }
   .SelectionArea {
     display: inline-block;
-    margin: 2vw;
+    margin: 0vw;
     width: auto;
     top: 0;
     vertical-align: center;
@@ -103,7 +115,6 @@
   .OrderArea {
     font-family: 'Oswald', sans-serif;
     font-size: 2vw;
-    margin: 2vw 0 2vw 0;
     display: inline-block;
   }
 .ButtonHolder {

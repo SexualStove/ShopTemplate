@@ -1,5 +1,5 @@
 <template>
-  <div id="WholePage" style="margin-bottom: 30vw">
+  <div id="WholePage" >
     <div id="TitleCard"><b> Order </b> </div>
     <div id="OrdersPage">
       <div id="receiptChunk">
@@ -152,6 +152,7 @@
 <style scoped>
   #WholePage {
     background-image: url("../../assets/images/lined_paper.png");
+    padding-bottom: 5vw;
   }
 #OrdersPage {
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
@@ -239,7 +240,7 @@ input[type=text]:focus {
   text-decoration: none;
   display: inline-block;
   font-size: 1vw;
-  margin: 4px 2px;
+  margin: 1vw 0 0 0;
   transition-duration: 0.4s;
   cursor: pointer;
   width: 20vw;

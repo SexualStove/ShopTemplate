@@ -1,5 +1,5 @@
 <template>
-  <div id="capsule">
+  <div id="capsule"><a id="AboutArea"></a>
     <div id="MainWindow">
       <div id="review">
         <div id="reviewText">

@@ -2,24 +2,17 @@
   <div id="WholePage">
     <HomePageSplashScreen></HomePageSplashScreen>
     <About></About>
-    <div id="MenuArea">
-      <MenuPage></MenuPage>
-      <CreateMenu></CreateMenu>
-    </div>
     <hr class="section-break" />
-    <OrderCustomerView></OrderCustomerView>
-
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
     import HomePageSplashScreen from "./HomePageSplashScreen";
     import About from "./About";
-    import CreateMenu from "../MenuPage/CreateMenu";
-    import MenuPage from "../MenuPage/MenuPage";
-    import OrderCustomerView from "../OrderPage/OrderCustomerView";
+    import Footer from "../Global/Footer";
     export default {
-        components: {OrderCustomerView, MenuPage, CreateMenu, About, HomePageSplashScreen}
+        components: {Footer,  About, HomePageSplashScreen}
     }
 </script>
 
