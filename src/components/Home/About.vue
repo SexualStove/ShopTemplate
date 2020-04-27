@@ -25,6 +25,7 @@
 
       </div>
       <div id="info">
+
         <b>Location</b><br>
         53  Gow Place<br>
         South New Brighton, 8062
@@ -61,6 +62,7 @@
 <style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
   #capsule {
+    background-image: url("../../assets/images/triangle-mosaic.png");
     width: 100vw;
     max-width: 100%;
     height: 100vh;
@@ -91,6 +93,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: rgba(250,231,203, 0.3);
+    margin: 0 1vw 2vw 1vw;
   }
   #reviewQuote {
     vertical-align: center;
@@ -99,32 +105,43 @@
   }
   #L-BLOCK {
     grid-area: L-BLOCK;
-    background-color: cornflowerblue;
+    //background-color: cornflowerblue;
   }
   #R-BLOCK {
     grid-area: R-BLOCK;
-    background-color: olive;
+    //background-color: olive;
   }
   #about {
+    -moz-border-radius-topleft: 50px;
+    -moz-border-radius-topright: 50px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
     grid-area: about;
-    background-color: crimson;
+    background-color: rgba(255,114,114, 0.3);
   }
   #aboutDescription {
+    margin: 2vw;
     font-family: 'Oswald', sans-serif;
     font-size: 1.4vw;
     font-weight: 200;
     text-align: left;
   }
   #aboutTitle {
+    margin: 2vw;
     font-family: 'Oswald', sans-serif;
     font-size: 1.6vw;
     font-weight: 200;
     text-align: left;
-    padding-bottom: 10%;
+    //padding-bottom: 10%;
   }
   #info {
+    justify-self: center;
+    align-self: center;
+    font-family: 'Oswald', sans-serif;
     grid-area: info;
-    background-color: coral;
+    background-color: rgba(255, 179, 133, 0.3);
+    padding: 1vw;
+    border-radius: 50px;
   }
   #picture {
     grid-area: picture;

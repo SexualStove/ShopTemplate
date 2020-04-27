@@ -77,8 +77,8 @@
   margin-bottom: 3vw;
 }
 .SlectionItem {
-  display: block;
-  margin: 2vw;
+  display: inline-block;
+  margin: 1.5vw;
   font-weight: 300;
   font-family: 'Amatic SC', cursive;
   font-size: 4vw;
@@ -86,11 +86,15 @@
 }
 .OrderedAmount {
   display: inline-block;
-  vertical-align: center;
+  vertical-align: bottom;
+  text-align: center;
+  margin-top: 1vw ;
+  height: 3.5vw;
+  width: 2vw;
 }
   .SelectionArea {
     display: inline-block;
-    margin: 3vw;
+    margin: 2vw;
     width: auto;
     top: 0;
     vertical-align: center;
@@ -99,9 +103,12 @@
   .OrderArea {
     font-family: 'Oswald', sans-serif;
     font-size: 2vw;
+    margin: 2vw 0 2vw 0;
+    display: inline-block;
   }
 .ButtonHolder {
-  width:3vw;
+  width:2vw;
+  height: 2vw;
   margin: 1vw;
   display: inline-block;
   vertical-align: central;
@@ -112,7 +119,7 @@
   position:relative;
   text-decoration:none;
   color:black;
-  font-size:2vw;
+  font-size:1vw;
   box-sizing:border-box;
   transition: 0.5s;
   margin: initial;
@@ -127,8 +134,8 @@
   display:flex;
   align-items:center;
   justify-content:center;
-  width: 3vw;
-  height: 3vw;
+  width: 2vw;
+  height: 2vw;
   margin: initial;
 }
 .OrderButtonsGreen span:before, .OrderButtonsRed span:before{
@@ -144,13 +151,13 @@
   box-shadow: 0 30px 85px rgba(0,0,0,0.14), 0 15px 35px rgba(0,0,0,0.14);
 }
 .OrderButtonsGreen span:before {
-  border:0.3vw solid greenyellow;
+  border:0.1vw solid greenyellow;
 }
 .OrderButtonsRed span:before {
-  border:0.3vw solid orangered;
+  border:0.1vw solid orangered;
 }
 .OrderButtonsGreen:hover span:before, .OrderButtonsRed:hover span:before{
-  transform:scale(0.8);
+  transform:scale(1.2);
   box-shadow: 0 20px 55px rgba(0,0,0,0.14), 0 15px 35px rgba(0,0,0,0.14);
 }
 

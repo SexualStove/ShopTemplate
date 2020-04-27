@@ -55,6 +55,7 @@
     background-position: 0 -20vh;
     justify-content: center;
     display: inline-block;
+    width: 100%;
   }
   #MainTitle {
     position: absolute;

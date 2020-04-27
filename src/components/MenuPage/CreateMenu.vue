@@ -9,7 +9,7 @@
       <div class="Rule">- Text entered into the box below is previewed in the menu above. Play around with it to see the change!</div>
     </div>
     <div id="InputZone">
-      <label for="MenuInput"></label><textarea id="MenuInput" rows="8" cols="50">
+      <label for="MenuInput"></label><textarea id="MenuInput" rows="12" cols="70">
     </textarea>
     </div>
     <button v-on:click="getMenuInput">Change</button>
