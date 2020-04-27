@@ -19,7 +19,9 @@ module.exports = {
         try{
             console.log("I send the ting");
             // extract object from req
-            let data = req;
+            let data = req.body;
+            // console.log(data);
+
             await SendMail(data);
 
         } catch (err) {
@@ -29,7 +31,7 @@ module.exports = {
         async function SendMail(data) {
             // Generate test SMTP service account from ethereal.email
             // Only needed if you don't have a real mail account for testing
-            console.log(data);
+
             //let testAccount = await nodemailer.createTestAccount();
 
             // create reusable transporter object using the default SMTP transport
@@ -47,13 +49,29 @@ module.exports = {
                 }
             });
 
+            // Process order data
+
+            let OrderString = "";
+
+            OrderString += "Name:&emsp;&emsp;&emsp;" + data.Name + "<br>";
+            OrderString += "Phone:&nbsp;&ensp;&emsp;&emsp;" + data.Phone + "<br>";
+            OrderString += "Email:&ensp;&emsp;&emsp;&ensp;&nbsp;"+data.Email + "<br>";
+            OrderString += "PlateNo:&emsp;&ensp;&ensp;"+data.Plate + "<br>";
+            OrderString += "Order Time:&ensp;"+data.TimeOf + "<br><br>";
+
+            for (var i = 0; i < data.Order.length; i++) {
+                OrderString += data.Order[i][0] + ": x" + data.Order[i][1] + "<br>";
+            }
+
+            OrderString += "Total Price: &emsp;$"+ data.Total.toFixed(2);
+
             // send mail with defined transport object
             let info = await transporter.sendMail({
                 from: '"Not Fred Foo 👻" <contact@inhouseweb.nz>', // sender address
                 to: "rt_condon@hotmail.com, inhouseweb@hotmail.com", // list of receivers
-                subject: "this be the order", // Subject line
+                subject: "New Order: " + data.Name, // Subject line
                 text: "this be the ordders", // plain text body
-                html: "<h1>"+"beep"+"</h1>" // html body
+                html: OrderString // html body
             });
 
             console.log("Message sent: %s", info.messageId);

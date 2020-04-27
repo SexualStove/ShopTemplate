@@ -78,6 +78,7 @@
 
 <script>
     import {EventBus} from "../../App";
+    import BlogController from "../../services/BlogServices";
 
     export default {
         name: "OrderCustomerView",
@@ -119,6 +120,29 @@
                 this.Details.plate = document.getElementById('Plate').value;
                 this.Details.TimeOf = new Date(new Date().getTime() + 12*60*60*1000).toLocaleTimeString();
 
+                console.log(this.OrderedItems);
+                console.log(this.OrderedItems[0]);
+                var fullOrder = [];
+
+                for (let i = 0; i < this.OrderedItems.length; i++) {
+                  var singleItem = [this.OrderedItems[i].title,
+                               this.OrderedItems[i].Ordered,
+                               this.OrderedItems[i].price];
+                  fullOrder.push(singleItem);
+                }
+
+                console.log(fullOrder);
+                let order = {
+                  Name: this.Details.name,
+                  Email: this.Details.email,
+                  Phone: this.Details.phone,
+                  Plate: this.Details.plate,
+                  TimeOf: this.Details.TimeOf,
+                  Order: fullOrder,
+                  Total: this.TotalPrice
+                };
+
+                BlogController.SendOrder(order);
             }
         },
         mounted() {
