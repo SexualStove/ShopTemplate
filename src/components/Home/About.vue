@@ -141,6 +141,7 @@
     grid-area: info;
     background-color: rgba(255, 179, 133, 0.3);
     padding: 1vw;
+    font-size: 1.1vw;
     border-radius: 50px;
   }
   #picture {

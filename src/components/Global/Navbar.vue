@@ -1,37 +1,17 @@
 <template>
-  <div>
-    <div style="" id="toggle-Button" class="toggle.btn">
 
-    </div>
-
-    <div class="menu">
-      <div class="data">
-        <ul>
-          <li id="ItemOne">
-            Navigation
-          </li>
-          <li id="ItemTwo">
-            Home
-          </li>
-          <li id="ItemThree">
-            About Us
-          </li>
-          <li id="ItemFour">
-            Portfolio
-          </li>
-          <li id="ItemFive">
-            Contact Us
-          </li>
-        </ul>
+    <div id="Nav-content">
+      <div id="Title"> ST </div>
+      <div id="navOptions">
+        <div class="Option">About</div>
+        <div class="Option">Menu</div>
+        <div class="Option">Order Online</div>
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>
-    import JQuery from 'jquery';
-    let $ = JQuery;
-    import {TimelineMax, Expo } from "gsap"
     export default {
         data() {
             return {
@@ -40,69 +20,45 @@
             }
         },
         methods: {
-
         },
         mounted() {
-          var NavBarTimeline = new TimelineMax({paused: true});
-
-
-          $('#toggle-Button').click( function () {
-              if(this.Reverse) {
-                  NavBarTimeline.reverse();
-              } else {
-                  if(!this.FirstTime) {
-                      NavBarTimeline.to(".menu", 2, {top: 0, ease: Expo.easeInOut, delay: -1.5});
-                      NavBarTimeline.from("#ItemOne", 0.4, {x: -200, opacity: 0});
-                      NavBarTimeline.from("#ItemTwo", 0.4, {x: -200, opacity: 0}, '-=0.25');
-                      NavBarTimeline.from("#ItemThree", 0.4, {x: -200, opacity: 0}, '-=0.25');
-                      NavBarTimeline.from("#ItemFour", 0.4, {x: -200, opacity: 0}, '-=0.25');
-                      NavBarTimeline.from("#ItemFive", 0.4, {x: -200, opacity: 0}, '-=0.25');
-                      this.FirstTime = true;
-                  }
-                  NavBarTimeline.play();
-              }
-              this.Reverse = !this.Reverse;
-          });
-
         }
     }
 </script>
 
 <style scoped>
-  .menu{
-    position: absolute;
-    background-color: #261D4F;
-    width: 100%;
-    height: 100vh;
-    line-height: 80px;
-    z-index: 3;
-    top: -100vh;
+  #Nav-content {
+    grid-area: Nav;
+    width: 100vw;
+    background-color: lightblue;
   }
-
-  .data {
-    padding: 13em 0 0 2em;
-    text-align: left;
+  #Nav-content {
+    text-align: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+    grid-template-areas:
+      "Title Options Options"
   }
-
-  ul {
-    list-style: none;
+  #Title {
+    font-size: 3vw;
+    font-weight: 600;
+    font-family: 'Amatic SC', cursive;
+    display: inline-block;
+    width: 4vw;
+    grid-area: Title;
+    border-radius: 100%;
+    border: slategray solid 3px;
+    margin-left: 4vw;
   }
-  li:first-child {
-    color: grey;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 30px;
+  #navOptions {
+    grid-area: Options;
   }
-  li:not(:first-child) {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    color: #FFFCF2;
-    font-size: 52px;
-  }
-
-  #toggle-Button {
-    position: absolute; width: 150px; height: 150px; z-index: 4;
-  }
-  #ItemOne, #ItemTwo, #ItemThree,#ItemFour, #ItemFive {
-    opacity: 1;
+  .Option {
+    display: inline-block;
+    height: 100%;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    cursor: pointer;
   }
 </style>

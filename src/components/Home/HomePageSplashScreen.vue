@@ -1,16 +1,13 @@
 <template>
   <div id="Capsule">
     <div id="CenterWindow">
-      <div id="Nav-content">
-        <div id="Title"> Shirley Takeaways </div>
-        <div id="navOptions">
-          <div class="Option">About</div>
-          <div class="Option">Menu</div>
-          <div class="Option">Order Online</div>
-        </div>
-      </div>
+      <Navbar></Navbar>
       <div id="SplashPage">
-        <div id="MainTitle"> Fish and Chips </div>
+        <div id="MainTitle">
+          <div id="ShopTitle">  Shirley Takeaways </div>
+          <div id="Line"></div>
+          <div id="SubTitle"> Your local takeaway!</div>
+        </div>
       </div>
     </div>
 
@@ -18,6 +15,17 @@
 </template>
 
 <script>
+    import Navbar from "../Global/Navbar.vue";
+    import {  TimelineMax, Back } from "gsap"
+    export default {
+        components: {Navbar},
+        mounted() {
+            let LogoStringTimeline = new TimelineMax({});
+            LogoStringTimeline.from('#Line', 2, {width: "-1vw", ease:Back.easeInOut(0.4)}, "+=0.5").from(
+                '#ShopTitle', 1, {y: "1vw", opacity: 0, ease:Back.easeInOut(0.4)}, "-=0.7").from(
+                '#SubTitle', 1, {y: "-1vw", opacity: 0, ease:Back.easeInOut(0.4)}, "-=0.1")
+        }
+    }
 </script>
 
 <style scoped>
@@ -45,14 +53,14 @@
   }
   #Nav-content {
     grid-area: Nav;
-    width: 100vw;
-    background-color: lightblue;
+
   }
+
   #SplashPage {
     grid-area: Main;
     background-image: url("../../assets/images/FishnChipMain.jpg");
     background-size: cover ;
-    background-position: 0 -20vh;
+    background-position: 0 0vh;
     justify-content: center;
     display: inline-block;
     width: 100%;
@@ -61,33 +69,22 @@
     position: absolute;
     justify-self: center;
     font-family: 'Amatic SC', cursive;
-    font-size: 8vw;
     width: 100vw;
     top: 30%
   }
-  #Nav-content {
-    text-align: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 20% 40% 40%;
-    grid-template-areas:
-      "Title Options Options"
+  #ShopTitle {
+    font-size: 8vw;
   }
-  #Title {
-    font-size: 4vw;
-    font-weight: 600;
-    font-family: 'Amatic SC', cursive;
-    display: block;
-    grid-area: Title;
+  #SubTitle {
+    font-size: 3vw;
   }
-  #navOptions {
-    grid-area: Options;
+  #Line {
+    background-color: black;
+    width: 25vw;
+    height: 1px;
+    justify-self: center;
+    align-self: center;
+    margin-left: 37.5vw
   }
-  .Option {
-    display: inline-block;
-    height: 100%;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    cursor: pointer;
-  }
+
 </style>

@@ -167,7 +167,7 @@
 }
   #TitleCard {
     padding: 3vw 0 1vw 0;
-    font-size: 15vw;
+    font-size: 10vw;
     font-family: 'Amatic SC', cursive;
 
   }
